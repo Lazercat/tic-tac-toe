@@ -1,8 +1,32 @@
 #board {
   margin-top: 10px;
+  background-color: rgba(0,0,0,0.2);
 }
 
 .box {
-  border: 1px solid black;
+  border: 2px solid black;
   height: 150px;
+  background-color:white;
+  padding:1px;
+  flex:3;
+}
+
+
+
+.row {
+  border-bottom:1px solid black;
+  display:flex;
+}
+
+.current-player{
+  width:50%;
+  text-align:center;
+  color:white;
+  background-color:teal;
+  float:right;
+}
+
+.box > img {
+  margin:0 center;
+  vertical-align:middle;
 }

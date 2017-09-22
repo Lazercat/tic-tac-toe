@@ -5,17 +5,15 @@
 
     <!-- set viewport to device width to allow responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap CSS from CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
     <!-- link to custom stylesheet (always require after Bootstrap) -->
-    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
     <!-- jQuery from CDN -->
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <!-- link to custom javascript file (always require after external JS libraries) -->
-
+    <script src="js/app.js" type="text/javascript"></script>
     <title>Tic Tac Toe</title>
   </head>
   <body>
@@ -26,6 +24,7 @@
           <hr>
         </div>
       </div>
+
       <div class="row">
 
         <!-- a column represents our game board -->
@@ -34,13 +33,29 @@
 
           <!-- you can put rows inside of columns! -->
           <!-- Bootstrap subdivides these 'nested' rows into 12 columns, too! -->
-          <div class="row">
-            <div class="col-md-4 box">a</div>
-            <div class="col-md-4 box">a</div>
-            <div class="col-md-4 box">a</div>
-          </div>
+         <section id="r1" class="row">
+            <div id="tl1" class="col-md-4 box row1 col1 diag1">row1 col1 diag1</div>
+            <div id="tc2" class="col-md-4 box row1 col2"> row1 col2</div>
+            <div id="tr3" class="col-md-4 box row1 col3 diag2">row1 col3 diag2</div>
+          </section>
+          <section id="r2" class="row">
+            <div id="ml4" class="col-md-4 box row2 col1">row2 col1</div>
+            <div id="mc5" class="col-md-4 box row2 col2 diag1 diag2">row2 col2 diag1 diag2</div>
+            <div id="mr6" class="col-md-4 box row2 col3">row2 col3</div>
+          </section>
+          <section id="r3" class="row">
+            <div id="bl7" class="col-md-4 box row3 col1 diag2">row3 col1 diag2</div>
+            <div id="bc8" class="col-md-4 box row3 col2">row3 col2</div>
+            <div id="br9" class="col-md-4 box row3 col3 diag1">row3 col3 diag1</div>
+          </section>
 
+          <section class="row">
 
+          <script>
+            </script>
+            <input type="button" value="reset" onclick="resetGrid();">
+            <div class="current-player">Player 1(O) Turn!</div>
+          </section>
 
         </div>
       </div>
