@@ -1,3 +1,6 @@
+
+
+
 #board {
   margin-top: 10px;
   background-color: rgba(0,0,0,0.2);
@@ -71,20 +74,30 @@ font-family: 'Righteous', cursive;
 background: linear-gradient(130deg, #29bf89, #0083bb, #ffffff);
 }
 
+.limit {
+  width:50%;
+  height:auto;
+  margin:0 auto;
+  vertical-align: center;
+}
 
-/* Modal stuff */
-/* The Modal (background) */
+
+/*MODAL DIALOG WITH CSS & JS
+Adopted from w3schools tutorial:
+https://www.w3schools.com/howto/howto_css_modals.asp;
+**************************************/
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align:center;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
 }
 
 .winImg {
