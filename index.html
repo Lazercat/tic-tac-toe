@@ -5,60 +5,127 @@
 
     <!-- set viewport to device width to allow responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS from CDN -->
+
+     <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+     <!-- Bootstrap CSS from CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <!-- link to custom stylesheet (always require after Bootstrap) -->
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+
     <!-- jQuery from CDN -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <!-- link to custom javascript file (always require after external JS libraries) -->
     <script src="js/app.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+      /* RESET GRID
+        ********************/
+       function resetGrid(){
+          var squares = [...document.querySelectorAll('.col-xs-4')];
+          var x = document.querySelector('.current-player');
+           turnNumber=0;
+           squares.forEach(function(squareReset){
+            squareReset.innerHTML = " ";
+            console.log("reset grid");
+            return turnNumber;
+         }) //close forEach
+       } //close resetGrid
+
+       /* CLOSE MODAL
+       *****************/
+       function closeModal(x){
+        let  modal = document.querySelector('.modal');
+         modal.style.display = 'none';
+         console.log("i was told to close this");
+       }
+
+       // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            console.log("i felt a click.");
+            let modal = document.querySelector('.modal');
+            if (event.target == modal) {
+                closeModal();
+              }
+        }
+    </script>
+
+
     <title>Tic Tac Toe</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h1>Tic Tac Toe</h1>
-          <hr>
-        </div>
+
+     <div class="container">
+        <div class="row text-center">
+          <div class="col-xs-12">
+            <h1>Tic Tac Toe</h1>
+            <h2>by Jesse Lewis</h2>
+            <hr>
+          </div>
       </div>
+
 
       <div class="row">
 
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <h2>Round over!</h2>
+              <p>The winner is:</p>
+              <span class="winAnnounce"> </span>
+              <div class="winImg"> </div>
+              <input type="button" class="modal-close" value="play again" onclick="closeModal();">
+            </div>
+          </div>
+
         <!-- a column represents our game board -->
         <!-- the `offset` class helps us center the board -->
-        <div class="col-md-6 col-md-offset-3" id="board">
+        <div class="col-xs-6 col-xs-offset-3" id="board">
+
+
+
 
           <!-- you can put rows inside of columns! -->
           <!-- Bootstrap subdivides these 'nested' rows into 12 columns, too! -->
          <section id="r1" class="row">
-            <div id="tl1" class="col-md-4 box row1 col1 diag1">row1 col1 diag1</div>
-            <div id="tc2" class="col-md-4 box row1 col2"> row1 col2</div>
-            <div id="tr3" class="col-md-4 box row1 col3 diag2">row1 col3 diag2</div>
+            <div id="tl1" class="col-xs-4 box row1 col1 diag1">row1 col1 diag1</div>
+            <div id="tc2" class="col-xs-4 box row1 col2"> row1 col2</div>
+            <div id="tr3" class="col-xs-4 box row1 col3 diag2">row1 col3 diag2</div>
           </section>
           <section id="r2" class="row">
-            <div id="ml4" class="col-md-4 box row2 col1">row2 col1</div>
-            <div id="mc5" class="col-md-4 box row2 col2 diag1 diag2">row2 col2 diag1 diag2</div>
-            <div id="mr6" class="col-md-4 box row2 col3">row2 col3</div>
+            <div id="ml4" class="col-xs-4 box row2 col1">row2 col1</div>
+            <div id="mc5" class="col-xs-4 box row2 col2 diag1 diag2">row2 col2 diag1 diag2</div>
+            <div id="mr6" class="col-xs-4 box row2 col3">row2 col3</div>
           </section>
           <section id="r3" class="row">
-            <div id="bl7" class="col-md-4 box row3 col1 diag2">row3 col1 diag2</div>
-            <div id="bc8" class="col-md-4 box row3 col2">row3 col2</div>
-            <div id="br9" class="col-md-4 box row3 col3 diag1">row3 col3 diag1</div>
+            <div id="bl7" class="col-xs-4 box row3 col1 diag2">row3 col1 diag2</div>
+            <div id="bc8" class="col-xs-4 box row3 col2">row3 col2</div>
+            <div id="br9" class="col-xs-4 box row3 col3 diag1">row3 col3 diag1</div>
           </section>
 
-          <section class="row">
 
-          <script>
-            </script>
-            <input type="button" value="reset" onclick="resetGrid();">
+
+          <section class="row">
+            <input class="reset" type="button" value="reset" onclick="resetGrid()">
+
             <div class="current-player">Player 1(O) Turn!</div>
+            <div class="stats">
+              <h2>Game Stats</h2>
+              <label for="round">Round: </label>
+              <input type="text" class="round" readonly="true" />
+              <label for="round">X Wins: </label>
+              <input type="text" class="x-wins" readonly="true" />
+              <label for="round">O Wins: </label>
+              <input type="text" class="o-wins" readonly="true" />
+            </div>
           </section>
 
         </div>
       </div>
+
     </div>
   </body>
 </html>
