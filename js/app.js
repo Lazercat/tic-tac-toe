@@ -9,6 +9,27 @@
     // all code to manipulate the DOM
     // goes inside this function
 
+      /* #ANYTIME btn clicked or winner determined - RESET GRID
+      ********************/
+       function resetGrid(){
+          var squares = [...document.querySelectorAll('.col-xs-4')];
+          var x = document.querySelector('.current-player');
+          x.innerHTML = 'Player 1(O) Turn!';
+          let turnNumber=0;
+           squares.forEach(function(squareReset){
+            squareReset.innerHTML = " ";
+            return turnNumber;
+         }) //close forEach
+       } //close resetGrid
+
+
+       var btnstuff = document.querySelector('.reset');
+          btnstuff.addEventListener('click', function(){
+            resetGrid();
+
+          });
+
+
      /* #4 SCOREBOARD/STATS & WIN ANNOUNCEMENT
       ********************/
      function winYell(win){
@@ -41,7 +62,7 @@
     /* #3 WINNER TRACKING
     ********************/
     function winTrack(winner){
-        //VARS FOR WAYS X CAN WIN
+         //VARS FOR WAYS X CAN WIN
           var rw1x = [...document.querySelectorAll('.row1 > img#x')]; //row1
           var rw2x = [...document.querySelectorAll('.row2 > img#x')]; //row2
           var rw3x = [...document.querySelectorAll('.row3 > img#x')]; //row3
@@ -64,8 +85,6 @@
           //ALL SQUARES NO WINNER
           var all = [...document.querySelectorAll('.col-xs-4 img')];
 
-
-
         //WIN SNIFFER
           if (rw1x.length===3||rw2x.length===3||rw3x.length===3||cl1x.length===3||cl2x.length===3||cl3x.length===3||d1x.length===3||d2x.length===3){
             winner = "Player X";
@@ -83,7 +102,7 @@
     *********************/
      var ecsi = '<img id="x" src="img/x.gif" alt="x" height="100%">';  //X img
      var ohsi = '<img id="o" src="img/o.gif" alt="o" height="100%">'; //O img
-     var squares = [...document.querySelectorAll('.col-xs-4')]; // array all squares
+     var squares = [...document.querySelectorAll('.col-xs-4')]; // concept of a parent that should hold an img
      var turnNumber = 0;  // turn tracking
      var playerUp = document.querySelector('.current-player'); //holds val of current player <--??
      var winner = null;
@@ -98,18 +117,20 @@
     squares.forEach(function(square) {
     square.addEventListener('click', function(event) {
 
-    //SQUARE IS AVAILABLE TO PLAY?
-    if(square.innerHTML!=ecsi && square.innerHTML!=ohsi){
+      console.log('square(clickBox)= ' + square);
 
-    //WHO'S TURN IS IT TO PLAY?
-     turnNumber = turnNumber+1;
+    //SQUARE IS AVAILABLE TO PLAY?
+    if(square.innerHTML!==ecsi && square.innerHTML!==ohsi){
+
+     //WHO'S TURN IS IT TO PLAY?
+      turnNumber++;
       var turnRemain = turnNumber%2;
       console.log("turn number:" + turnNumber + " remain: " + turnRemain);
 
       //SET X OR O BASED ON TURN
-       if(turnRemain===0){square.innerHTML=ecsi;playerUp.innerHTML='Player 1(O) Turn!';} //Put an x on it
-       else if (turnRemain===1){square.innerHTML=ohsi;playerUp.innerHTML='Player 2(X) Turn!';} //put an o on it
-        winTrack(winner);  //FIRE OFF WINNER TRACKER step 3
+       if(turnRemain===0){square.innerHTML=ohsi;playerUp.innerHTML='Player 1(X) Turn!';} //Put an x on it
+       else if (turnRemain===1){square.innerHTML=ecsi;playerUp.innerHTML='Player 2(O) Turn!';} //put an o on it
+        winTrack();  //FIRE OFF WINNER TRACKER step 3
         return turnNumber;
     }
 
@@ -121,19 +142,6 @@
    })//CLOSE function of square
 
 
-/* #ANYTIME btn clicked or winner determined - RESET GRID
-********************/
- function resetGrid(){
-    var squares = [...document.querySelectorAll('.col-xs-4')];
-    var x = document.querySelector('.current-player');
-    x.innerHTML = 'Player 1(O) Turn!';
-    let turnNumber=0;
-     squares.forEach(function(squareReset){
-      squareReset.innerHTML = " ";
-      console.log("reset grid");
-      return turnNumber;
-   }) //close forEach
- } //close resetGrid
 
 
 

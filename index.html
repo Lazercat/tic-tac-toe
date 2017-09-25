@@ -22,20 +22,6 @@
     <script src="js/app.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-
-      /* RESET GRID
-        ********************/
-       function resetGrid(){
-          var squares = [...document.querySelectorAll('.col-xs-4')];
-          var x = document.querySelector('.current-player');
-           turnNumber=0;
-           squares.forEach(function(squareReset){
-            squareReset.innerHTML = " ";
-            console.log("reset grid");
-            return turnNumber;
-         }) //close forEach
-       } //close resetGrid
-
        /* CLOSE MODAL
        *****************/
        function closeModal(x){
@@ -85,28 +71,31 @@
         <!-- the `offset` class helps us center the board -->
         <div class="col-xs-6 col-xs-offset-3" id="board">
 
+
+
+
           <!-- you can put rows inside of columns! -->
           <!-- Bootstrap subdivides these 'nested' rows into 12 columns, too! -->
-         <section id="r1" class="row">
-            <div id="tl1" class="col-xs-4 box row1 col1 diag1">row1 col1 diag1</div>
-            <div id="tc2" class="col-xs-4 box row1 col2"> row1 col2</div>
-            <div id="tr3" class="col-xs-4 box row1 col3 diag2">row1 col3 diag2</div>
+         <section class="row">
+            <div class="col-xs-4 box row1 col1 diag1"></div>
+            <div class="col-xs-4 box row1 col2"></div>
+            <div class="col-xs-4 box row1 col3 diag2"></div>
           </section>
-          <section id="r2" class="row">
-            <div id="ml4" class="col-xs-4 box row2 col1">row2 col1</div>
-            <div id="mc5" class="col-xs-4 box row2 col2 diag1 diag2">row2 col2 diag1 diag2</div>
-            <div id="mr6" class="col-xs-4 box row2 col3">row2 col3</div>
+          <section class="row">
+            <div class="col-xs-4 box row2 col1"></div>
+            <div class="col-xs-4 box row2 col2 diag1 diag2"></div>
+            <div class="col-xs-4 box row2 col3"></div>
           </section>
-          <section id="r3" class="row">
-            <div id="bl7" class="col-xs-4 box row3 col1 diag2">row3 col1 diag2</div>
-            <div id="bc8" class="col-xs-4 box row3 col2">row3 col2</div>
-            <div id="br9" class="col-xs-4 box row3 col3 diag1">row3 col3 diag1</div>
+          <section class="row">
+            <div class="col-xs-4 box row3 col1 diag2"></div>
+            <div class="col-xs-4 box row3 col2"></div>
+            <div class="col-xs-4 box row3 col3 diag1"></div>
           </section>
 
 
 
           <section class="row">
-            <input class="reset" type="button" value="reset" onclick="resetGrid()">
+            <input class="reset" type="button" value="reset" onclick="resetGrid();">
 
             <div class="current-player">Player 1(O) Turn!</div>
             <div class="stats">

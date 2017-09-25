@@ -1,10 +1,9 @@
-
-
-
 #board {
-  margin-top: 10px;
+  margin-top: 25px;
+  margin-bottom:25px;
   background-color: rgba(0,0,0,0.2);
   color:white;
+    box-shadow: 10px 10px 5px #0083bb;
 }
 
 h1{
@@ -25,7 +24,23 @@ h2 {
   height: 150px;
   background-color:white;
   padding:1px;
+   box-shadow: inset 0px 0px 30px rgba(0,0,0,0.5);
 }
+
+.box:hover {
+  border: 2px solid black;
+  height: 150px;
+  background-color:#white;
+  padding:1px;
+  box-shadow: inset 0px 0px 30px rgba(0,131,187,0.5);
+}
+.box:focus {
+  border: 2px solid black;
+  height: 150px;
+  background-color:white;
+  padding:1px;
+   box-shadow: inset 0px 0px 30px  rgba(0,131,187,0.5);
+  }
 
 .current-player{
   width:50%;
@@ -111,7 +126,6 @@ https://www.w3schools.com/howto/howto_css_modals.asp;
   background-color: #29bf89;
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -120,17 +134,13 @@ https://www.w3schools.com/howto/howto_css_modals.asp;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-    color: black;
+input.modal-close:hover,
+input.modal-close:focus {
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }
+
+
+/*  animating bg */
